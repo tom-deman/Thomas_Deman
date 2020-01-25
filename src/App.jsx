@@ -15,6 +15,9 @@ import './assets/sass/style.sass'
 
 import Inquietude from './components/Inquietude'
 import Modernity from './components/Modernity'
+import Exhibition from './components/Exhibition'
+import Disorder from './components/Disorder'
+import Contact from './components/Contact'
 
 
 const App = () => {
@@ -35,11 +38,11 @@ const App = () => {
         },
         {
             component: 'Disorder',
-            years: '"Exhibition 2017"'
+            years: '"Disorder 2018-2019"'
         },
         {
             component: 'Exhibition',
-            years: '"Disorder 2018-2019"'
+            years: '"Exhibition 2017"'
         },
         {
             component: 'Contact',
@@ -57,7 +60,7 @@ return(
 
                 <div className="w-1/3 pl-12">
 
-                    <Link to="/">
+                    <Link to="/" onClick={ () => setGalleryCount(0) }>
                         <h1 className={`mt-12 text-3xl font-thin ${hover}`}>
                             Thomas Deman
                         </h1>
@@ -71,7 +74,10 @@ return(
                                         key={i} 
                                         className={`my-8 font-thin ${hover}`} 
                                     >
-                                        <Link to={`/${e.component}`} >
+                                        <Link 
+                                            to={`/${e.component}`} 
+                                            onClick={ () => setGalleryCount(i) }
+                                        >
                                             {e.component}
                                         </Link>
                                     </li>
@@ -82,11 +88,17 @@ return(
                                     key={e.component}
                                 >
                                     {i === 0 ? 
-                                        <Link to={`/${e.component}`} >
+                                        <Link 
+                                            to={`/${e.component}`}
+                                            onClick={ () => setGalleryCount(i) }
+                                        >
                                             In Quietude
                                         </Link> :
 
-                                        <Link to={`/${e.component}`} >
+                                        <Link 
+                                            to={`/${e.component}`}
+                                            onClick={ () => setGalleryCount(i) }
+                                        >
                                             {e.component}
                                         </Link>
                                     }
@@ -95,7 +107,7 @@ return(
                         })}
                     </ul>
 
-                    <p className="font-thin text-xs mt-64 pl-2">{galleryLinks[0].years}</p>
+                    <p className="font-thin text-xs mt-64 pl-2">{galleryLinks[galleryCount].years}</p>
                 </div>
 
                 <div className="w-2/3">
@@ -107,6 +119,9 @@ return(
                     <Switch>
                         <Route path="/Inquietude" component={Inquietude} />
                         <Route path="/Modernity" component={Modernity} />
+                        <Route path="/Exhibition" component={Exhibition} />
+                        <Route path="/Disorder" component={Disorder} />
+                        <Route path="/Contact" component={Contact} />
                     </Switch>
                 </div>
 
