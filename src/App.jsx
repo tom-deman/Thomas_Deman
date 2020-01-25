@@ -14,26 +14,37 @@ import './assets/css/animate.css'
 import './assets/sass/style.sass'
 
 import Inquietude from './components/Inquietude'
+import Modernity from './components/Modernity'
 
 
 const App = () => {
-    const [galleryYears, setGalleryYears] = useState([
-        '"In Quietude 2016-2019"',
-        '"Modernity 2015-2016"',
-        '"Disorder 2018-2019"',
-        '"Exhibition 2017"'
-    ])
+    const [galleryCount, setGalleryCount] = useState(0)
     
     const Main = () => {
         return <div className="imgMain h-full w-full"></div>
     }
 
-    const linksTab = [
-        'Inquietude',
-        'Modernity',
-        'Disorder',
-        'Exhibition',
-        'Contact',
+    const galleryLinks = [
+        {
+            component: 'Inquietude',
+            years: '"In Quietude 2016-2019"'
+        },
+        {
+            component: 'Modernity',
+            years: '"Modernity 2015-2016"'
+        },
+        {
+            component: 'Disorder',
+            years: '"Exhibition 2017"'
+        },
+        {
+            component: 'Exhibition',
+            years: '"Disorder 2018-2019"'
+        },
+        {
+            component: 'Contact',
+            years: null
+        },
     ]
 
     const hover = 'hover:text-gray-700'
@@ -53,49 +64,49 @@ return(
                     </Link>
 
                     <ul className="mt-12 pl-2">
-                        { linksTab.map(
-                            (e, i) => {
-                                if(i === 3)
-                                    return (
-                                        <li 
-                                            key={i} 
-                                            className={`my-8 font-thin ${hover}`} 
-                                        >
-                                            <Link to={`/${e}`} >
-                                                {e}
-                                            </Link>
-                                        </li>
-                                    )
+                        { galleryLinks.map((e, i) => {
+                            if(i === 3)
                                 return (
                                     <li 
-                                        className={`font-thin ${hover}`} 
-                                        key={e}
+                                        key={i} 
+                                        className={`my-8 font-thin ${hover}`} 
                                     >
-                                        {i === 0 ? 
-                                            <Link to={`/${e}`} >
-                                                In Quietude
-                                            </Link> :
-
-                                            <Link to={`/${e}`} >
-                                                {e}
-                                            </Link>
-                                        }
+                                        <Link to={`/${e.component}`} >
+                                            {e.component}
+                                        </Link>
                                     </li>
                                 )
-                            }
-                        )}
+                            return (
+                                <li 
+                                    className={`font-thin ${hover}`} 
+                                    key={e.component}
+                                >
+                                    {i === 0 ? 
+                                        <Link to={`/${e.component}`} >
+                                            In Quietude
+                                        </Link> :
+
+                                        <Link to={`/${e.component}`} >
+                                            {e.component}
+                                        </Link>
+                                    }
+                                </li>
+                            )
+                        })}
                     </ul>
 
-                    <p className="font-thin text-xs mt-64 pl-2">{galleryYears[0]}</p>
+                    <p className="font-thin text-xs mt-64 pl-2">{galleryLinks[0].years}</p>
                 </div>
-
 
                 <div className="w-2/3">
                     <Switch>
                         <Link to="/Inquietude">
                             <Route exact path="/" component={Main} />
                         </Link>
+                    </Switch>
+                    <Switch>
                         <Route path="/Inquietude" component={Inquietude} />
+                        <Route path="/Modernity" component={Modernity} />
                     </Switch>
                 </div>
 

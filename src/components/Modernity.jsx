@@ -1,13 +1,13 @@
 import React, { StrictMode } from 'react'
 
 
-const Inquietude = () => {
+const Modernity = () => {
     return(
         <StrictMode>
-            <h1>In quietude</h1>
+            <h1>Modernity</h1>
         </StrictMode>
     )
 }
 
 
-export default Inquietude 
+export default Modernity
