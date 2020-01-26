@@ -2,6 +2,7 @@ import React, { StrictMode } from 'react'
 
 
 const Gallery = (props) => {
+
     return (
         <StrictMode>
             <div className="gallery">
@@ -14,12 +15,12 @@ const Gallery = (props) => {
             </div>
             <div className="flex justify-around mt-6">
                 <div className="w-2/4">
-                    <span className="font-thin text-xs">
+                    <span className={props.hiddenClass ? 'hidden' : 'font-thin text-xs'}>
                         Click or use arrow keys to navigate
                     </span>
                 </div>
                 <div className="w-1/4">
-                    <span className="text-sm font-thin">1/1</span>
+                    <span className="text-sm font-thin">{props.count + 1}/{props.tab.length}</span>
                 </div>
             </div>
         </StrictMode>
