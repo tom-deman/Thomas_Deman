@@ -1,9 +1,10 @@
 import React, { StrictMode } from 'react'
 
-const Navigation = (props) => {
+const Navigation = ( props ) => {
+
     return(
         <StrictMode>
-            {props.children}
+            { props.children }
         </StrictMode>
     )
 }

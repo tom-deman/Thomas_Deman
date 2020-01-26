@@ -2,11 +2,16 @@ import React, { StrictMode } from 'react'
 
 
 const Contact = () => {
+
     return (
         <StrictMode>
                 <div className="w-full mt-24 pl-32">
-                    <form id="contact" method="post" action="../assets/php/forms.php">
-                        <div className="">
+                    <form 
+                        id="contact" 
+                        method="post" 
+                        action="../assets/php/forms.php"
+                    >
+                        <div>
                             <label 
                                 htmlFor="name" 
                                 className="block font-thin mb-2 ml-1"
@@ -22,7 +27,7 @@ const Contact = () => {
                             />
                         </div>
 
-                        <div className="">
+                        <div>
                             <label 
                                 htmlFor="email" 
                                 className="block font-thin mb-2 ml-1"
@@ -38,7 +43,7 @@ const Contact = () => {
                             />
                         </div>
 
-                        <div className="">
+                        <div>
                             <label 
                                 htmlFor="message" 
                                 className="block mb-2 ml-1 font-thin"
@@ -69,7 +74,6 @@ const Contact = () => {
                         <p className="text-sm font-thin mb-6">
                             dt.deman.thomas@gmail.com
                         </p>
-
                         <a 
                             href="mailto:dt.deman.thomas@gmail.com" 
                             target="_top"

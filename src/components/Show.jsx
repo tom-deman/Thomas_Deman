@@ -1,9 +1,10 @@
 import React, { StrictMode } from 'react'
 
-const Show = (props) => {
+const Show = ( props ) => {
+
     return(
         <StrictMode>
-            {props.children}
+            { props.children }
         </StrictMode>
     )
 }
