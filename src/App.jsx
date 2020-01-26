@@ -21,48 +21,78 @@ import tabDisorder from './assets/js/disorder'
 
 
 const App = () => {
-    const [galleryCount, setGalleryCount] = useState(0)
+    const [ galleryCount, setGalleryCount ]         = useState(0)
 
-    const [countInquietude, setCountInquietude] = useState(0)
-    const [countModernity, setCountModernity] = useState(0)
-    const [countExhibition, setCountExhibition] = useState(0)
-    const [countDisorder, setCountDisorder] = useState(0)
+    const [ countInquietude, setCountInquietude ]   = useState(0)
+    const [ countModernity, setCountModernity ]     = useState(0)
+    const [ countExhibition, setCountExhibition ]   = useState(0)
+    const [ countDisorder, setCountDisorder ]       = useState(0)
 
-    const [hiddenInquietude, setHiddenInquietude] = useState(false)
-    const [hiddenModernity, setHiddenModernity] = useState(false)
-    const [hiddenExhibition, setHiddenExhibition] = useState(false)
-    const [hiddenDisorder, setHiddenDisorder] = useState(false)
+    const [ hiddenInquietude, setHiddenInquietude ] = useState(false)
+    const [ hiddenModernity, setHiddenModernity ]   = useState(false)
+    const [ hiddenExhibition, setHiddenExhibition ] = useState(false)
+    const [ hiddenDisorder, setHiddenDisorder ]     = useState(false)
 
 
     const galleryLinks = [
         {
             component: 'Inquietude',
-            years: '"In Quietude 2016-2019"'
+            years    : '"In Quietude 2016-2019"'
         },
         {
             component: 'Modernity',
-            years: '"Modernity 2015-2016"'
+            years    : '"Modernity 2015-2016"'
         },
         {
             component: 'Exhibition',
-            years: '"Exhibition 2017"'
+            years    : '"Exhibition 2017"'
         },
         {
             component: 'Disorder',
-            years: '"Disorder 2018-2019"'
+            years    : '"Disorder 2018-2019"'
         },
         {
             component: 'Contact',
-            years: null
+            years    : null
         },
     ]
 
+    const inquietudeParams = [
+        countInquietude, 
+        tabInquietude, 
+        setCountInquietude, 
+        hiddenInquietude, 
+        setHiddenInquietude
+    ]
+
+    const modernityParams = [
+        countModernity, 
+        tabModernity, 
+        setCountModernity, 
+        hiddenModernity, 
+        setHiddenModernity
+    ]
+
+    const exhibitionParams = [
+        countExhibition, 
+        tabExhibition, 
+        setCountExhibition, 
+        hiddenExhibition, 
+        setHiddenExhibition
+    ]
+
+    const disorderParams = [
+        countDisorder, 
+        tabDisorder, 
+        setCountDisorder, 
+        hiddenDisorder, 
+        setHiddenDisorder
+    ]
 
     const carousel = (count, tab, setCount, hidden, setHidden) => {
         count < (tab.length - 1) ?
             setCount(count + 1) :
             setCount(0)
-        console.log(hidden)
         if(hidden === false)
             setHidden(true)
     }
@@ -71,61 +101,36 @@ const App = () => {
         count > 0 ?
             setCount(count - 1) :
             setCount(tab.length - 1)
-        console.log(hidden)
         if(hidden === false)
             setHidden(true)
     }
 
     const changeInquietude = () => 
-        carousel(
-            countInquietude, 
-            tabInquietude, 
-            setCountInquietude, 
-            hiddenInquietude, 
-            setHiddenInquietude
-        )
+        carousel(...inquietudeParams)
 
     const changeModernity = () => 
-        carousel(
-            countModernity, 
-            tabModernity, 
-            setCountModernity, 
-            hiddenModernity, 
-            setHiddenModernity
-        )
+        carousel(...modernityParams)
 
     const changeExhibition = () => 
-        carousel(
-            countExhibition, 
-            tabExhibition, 
-            setCountExhibition, 
-            hiddenExhibition, 
-            setHiddenExhibition
-        )
+        carousel(...exhibitionParams)
 
     const changeDisorder = () => 
-        carousel(
-            countDisorder, 
-            tabDisorder, 
-            setCountDisorder, 
-            hiddenDisorder, 
-            setHiddenDisorder
-        )
+        carousel(...disorderParams)
 
     const changeGallery = (event) => {
         if(event.keyCode === 39)
             switch(galleryCount) {
                 case 0:
-                    carousel(countInquietude, tabInquietude, setCountInquietude, hiddenInquietude, setHiddenInquietude)
+                    carousel(...inquietudeParams)
                     break
                 case 1:
-                    carousel(countModernity, tabModernity, setCountModernity, hiddenModernity, setHiddenModernity)
+                    carousel(...modernityParams)
                     break
                 case 2:
-                    carousel(countExhibition, tabExhibition, setCountExhibition, hiddenExhibition, setHiddenExhibition)
+                    carousel(...exhibitionParams)
                     break
                 case 3:
-                    carousel(countDisorder, tabDisorder, setCountDisorder, hiddenDisorder, setHiddenDisorder)
+                    carousel(...disorderParams)
                     break
                 default:
                     // Do nothing
@@ -133,16 +138,16 @@ const App = () => {
         else if(event.keyCode === 37)
             switch(galleryCount) {
                 case 0:
-                    carouselReverse(countInquietude, tabInquietude, setCountInquietude, hiddenInquietude, setHiddenInquietude)
+                    carouselReverse(...inquietudeParams)
                     break
                 case 1:
-                    carouselReverse(countModernity, tabModernity, setCountModernity, hiddenModernity, setHiddenModernity)
+                    carouselReverse(...modernityParams)
                     break
                 case 2:
-                    carouselReverse(countExhibition, tabExhibition, setCountExhibition, hiddenExhibition, setHiddenExhibition)
+                    carouselReverse(...exhibitionParams)
                     break
                 case 3:
-                    carouselReverse(countDisorder, tabDisorder, setCountDisorder, hiddenDisorder, setHiddenDisorder)
+                    carouselReverse(...disorderParams)
                     break
                 default:
                     // Do nothing
@@ -241,7 +246,7 @@ return(
                     <Link to="/Inquietude">
                         <Switch>
                             <Route exact path="/">
-                                <div className="imgMain h-full w-full"></div>
+                                <div className="imgMain h-full w-full" />
                             </Route>
                         </Switch>
                     </Link>
