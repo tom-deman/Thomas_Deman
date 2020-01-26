@@ -13,10 +13,7 @@ import './assets/css/font-awesome.css'
 import './assets/css/animate.css'
 import './assets/sass/style.sass'
 
-import Inquietude from './components/Inquietude'
-import Modernity from './components/Modernity'
-import Exhibition from './components/Exhibition'
-import Disorder from './components/Disorder'
+import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 
 import tabInquietude from './assets/js/inquietude'
@@ -28,10 +25,7 @@ const App = () => {
 
     const [countInquietude, setCountInquietude] = useState(0)
     const [countModernity, setCountModernity] = useState(0)
-    
-    const Main = () => {
-        return <div className="imgMain h-full w-full"></div>
-    }
+
 
     const galleryLinks = [
         {
@@ -133,31 +127,33 @@ return(
                     </p>
                 </div>
 
-                <div className="w-3/4 flex">
-                    <Switch>
-                        <Link to="/Inquietude">
-                            <Route exact path="/" component={Main} />
-                        </Link>
-                    </Switch>
+                <div className="w-3/4">
+                    <Link to="/Inquietude">
+                        <Switch>
+                            <Route exact path="/">
+                                <div className="imgMain h-full w-full"></div>
+                            </Route>
+                        </Switch>
+                    </Link>
                     
                     <div className="w-4/6 mt-8">
                         <Switch>
                             <Route path="/Inquietude">
-                                <Inquietude 
+                                <Gallery
                                     tab={tabInquietude}
                                     count={countInquietude}
                                     changeImg={changeInquietude}
                                 />
                             </Route>
                             <Route path="/Modernity">
-                                <Inquietude 
+                                <Gallery 
                                     tab={tabModernity}
                                     count={countModernity}
                                     changeImg={changeModernity}
                                 />
                             </Route>
-                            <Route path="/Exhibition" component={Exhibition} />
-                            <Route path="/Disorder" component={Disorder} />
+                            <Route path="/Exhibition" />
+                            <Route path="/Disorder" />
                             <Route path="/Contact" component={Contact} />
                         </Switch>
                     </div>

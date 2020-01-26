@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react'
 
 
-const Inquietude = (props) => {
+const Gallery = (props) => {
     return (
         <StrictMode>
             <div className="gallery">
@@ -27,4 +27,4 @@ const Inquietude = (props) => {
 }
 
 
-export default Inquietude 
+export default Gallery
