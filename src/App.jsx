@@ -9,8 +9,6 @@ import { Switch } from 'react-router'
 
 
 import './assets/css/tailwind.css'
-import './assets/css/font-awesome.css'
-import './assets/css/animate.css'
 import './assets/sass/style.sass'
 
 import Gallery from './components/Gallery'
@@ -60,54 +58,74 @@ const App = () => {
     ]
 
 
-    const carousel = (count, tab, setCount) => 
+    const carousel = (count, tab, setCount, hidden, setHidden) => {
         count < (tab.length - 1) ?
             setCount(count + 1) :
             setCount(0)
+        console.log(hidden)
+        if(hidden === false)
+            setHidden(true)
+    }
 
-    const carouselReverse = (count, tab, setCount) => 
+    const carouselReverse = (count, tab, setCount, hidden, setHidden) => {
         count > 0 ?
             setCount(count - 1) :
             setCount(tab.length - 1)
-
-    const changeInquietude = () => {
-        carousel(countInquietude, tabInquietude, setCountInquietude)
-        if(hiddenInquietude === false)
-            setHiddenInquietude(true)
-    }
-    
-    const changeModernity = () => {
-        carousel(countModernity, tabModernity, setCountModernity)
-        if(hiddenModernity === false)
-            setHiddenModernity(true)
+        console.log(hidden)
+        if(hidden === false)
+            setHidden(true)
     }
 
-    const changeExhibition = () => {
-        carousel(countExhibition, tabExhibition, setCountExhibition)
-        if(hiddenExhibition === false)
-            setHiddenExhibition(true)
-    }
+    const changeInquietude = () => 
+        carousel(
+            countInquietude, 
+            tabInquietude, 
+            setCountInquietude, 
+            hiddenInquietude, 
+            setHiddenInquietude
+        )
 
-    const changeDisorder = () => {
-        carousel(countDisorder, tabDisorder, setCountDisorder)
-        if(hiddenDisorder === false)
-            setHiddenDisorder(true)
-    }
+    const changeModernity = () => 
+        carousel(
+            countModernity, 
+            tabModernity, 
+            setCountModernity, 
+            hiddenModernity, 
+            setHiddenModernity
+        )
+
+    const changeExhibition = () => 
+        carousel(
+            countExhibition, 
+            tabExhibition, 
+            setCountExhibition, 
+            hiddenExhibition, 
+            setHiddenExhibition
+        )
+
+    const changeDisorder = () => 
+        carousel(
+            countDisorder, 
+            tabDisorder, 
+            setCountDisorder, 
+            hiddenDisorder, 
+            setHiddenDisorder
+        )
 
     const changeGallery = (event) => {
         if(event.keyCode === 39)
             switch(galleryCount) {
                 case 0:
-                    carousel(countInquietude, tabInquietude, setCountInquietude)
+                    carousel(countInquietude, tabInquietude, setCountInquietude, hiddenInquietude, setHiddenInquietude)
                     break
                 case 1:
-                    carousel(countModernity, tabModernity, setCountModernity)
+                    carousel(countModernity, tabModernity, setCountModernity, hiddenModernity, setHiddenModernity)
                     break
                 case 2:
-                    carousel(countExhibition, tabExhibition, setCountExhibition)
+                    carousel(countExhibition, tabExhibition, setCountExhibition, hiddenExhibition, setHiddenExhibition)
                     break
                 case 3:
-                    carousel(countDisorder, tabDisorder, setCountDisorder)
+                    carousel(countDisorder, tabDisorder, setCountDisorder, hiddenDisorder, setHiddenDisorder)
                     break
                 default:
                     // Do nothing
@@ -115,20 +133,40 @@ const App = () => {
         else if(event.keyCode === 37)
             switch(galleryCount) {
                 case 0:
-                    carouselReverse(countInquietude, tabInquietude, setCountInquietude)
+                    carouselReverse(countInquietude, tabInquietude, setCountInquietude, hiddenInquietude, setHiddenInquietude)
                     break
                 case 1:
-                    carouselReverse(countModernity, tabModernity, setCountModernity)
+                    carouselReverse(countModernity, tabModernity, setCountModernity, hiddenModernity, setHiddenModernity)
                     break
                 case 2:
-                    carouselReverse(countExhibition, tabExhibition, setCountExhibition)
+                    carouselReverse(countExhibition, tabExhibition, setCountExhibition, hiddenExhibition, setHiddenExhibition)
                     break
                 case 3:
-                    carouselReverse(countDisorder, tabDisorder, setCountDisorder)
+                    carouselReverse(countDisorder, tabDisorder, setCountDisorder, hiddenDisorder, setHiddenDisorder)
                     break
                 default:
                     // Do nothing
             }
+    }
+
+    const changeCurrentGallery = (a) => {
+        setGalleryCount(a)
+        switch(a) {
+            case 0: 
+                setCountInquietude(0)
+                break
+            case 1: 
+                setCountModernity(0)
+                break
+            case 2:
+                setCountExhibition(0)
+                break
+            case 3:
+                setCountDisorder(0)
+                break
+            default: 
+                // Do nothing
+        }
     }
 
     const hover = 'hover:text-gray-700'
@@ -163,7 +201,7 @@ return(
                                     >
                                         <Link 
                                             to={`/${e.component}`} 
-                                            onClick={ () => setGalleryCount(i) }
+                                            onClick={ () => changeCurrentGallery(i) }
                                         >
                                             {e.component}
                                         </Link>
@@ -177,14 +215,14 @@ return(
                                     {i === 0 ? 
                                         <Link 
                                             to={`/${e.component}`}
-                                            onClick={ () => setGalleryCount(i) }
+                                            onClick={ () => changeCurrentGallery(i) }
                                         >
                                             In Quietude
                                         </Link> :
 
                                         <Link 
                                             to={`/${e.component}`}
-                                            onClick={ () => setGalleryCount(i) }
+                                            onClick={ () => changeCurrentGallery(i) }
                                         >
                                             {e.component}
                                         </Link>
