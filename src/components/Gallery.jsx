@@ -13,7 +13,7 @@ const Gallery = ( props ) => {
                     alt="In Quietude photograph" 
                 />
             </div>
-            <div className="flex justify-around mt-6">
+            <div className="md:flex hidden justify-around mt-6">
                 <div className="w-2/4">
                     <span className={ props.hiddenClass ? 'hidden' : 'font-thin text-xs' }>
                         Click or use arrow keys to navigate

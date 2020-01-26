@@ -5,7 +5,7 @@ const Contact = () => {
 
     return (
         <StrictMode>
-                <div className="w-full mt-24 pl-32">
+                <div className="w-full mt-24 md:pl-32 pl-8">
                     <form 
                         id="contact" 
                         method="post" 

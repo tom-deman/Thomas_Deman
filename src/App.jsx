@@ -123,13 +123,13 @@ const App = () => {
     return(
         <StrictMode>
             <div 
-                className="flex w-screen h-screen disable-scroll" 
+                className="md:flex block md:w-screen md:h-screen disable-scroll" 
                 tabIndex="0" 
                 onKeyDown={ changeGallery }
             >
                 <Router>
 
-                    <div className="w-1/4 pl-12">
+                    <div className="md:w-1/4 w-full pl-12">
                         <Navigation>
                             <Link 
                                 to="/" 
@@ -181,13 +181,13 @@ const App = () => {
                                 })}
                             </ul>
 
-                            <p className="font-thin text-xs mt-64 pl-2">
+                            <p className="font-thin text-xs md:mt-64 mt-24 pl-2">
                                 { galleryCount !== undefined ? galleryLinks[ galleryCount ].years : '' }
                             </p>
                         </Navigation>
                     </div>
 
-                    <div className="w-3/4">
+                    <div className="md:w-3/4 w-full">
                         <Show>
                             <Link 
                                 to="/Inquietude"
@@ -200,7 +200,7 @@ const App = () => {
                                 </Switch>
                             </Link>
                             
-                            <div className="w-4/6 mt-8">
+                            <div className="md:w-4/6 w-full mt-8">
                                 <Switch>
                                     <Route path="/Inquietude">
                                         <Gallery
