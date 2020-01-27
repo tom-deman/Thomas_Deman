@@ -194,7 +194,7 @@ const App = () => {
                                 onClick={ () => setGalleryCount( 0 ) }
                             >
                                 <Switch>
-                                    <Route exact path="/">
+                                    <Route exact path="/Thomas_Deman/">
                                         <div className="imgMain h-full w-full" />
                                     </Route>
                                 </Switch>
