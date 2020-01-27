@@ -132,6 +132,7 @@ const App = () => {
                     <div className="md:w-1/4 w-full pl-12">
                         <Navigation>
                             <Link 
+                                className={galleryCount === undefined ? 'text-gray-700' : ''}
                                 to="/Thomas_Deman/" 
                                 onClick={ () => setGalleryCount( undefined ) }
                             >
@@ -149,6 +150,7 @@ const App = () => {
                                                 className={ `my-8 font-thin ${ hover }` } 
                                             >
                                                 <Link 
+                                                    className={galleryCount === i ? 'text-gray-700' : ''}
                                                     to={ `/${ e.component }` } 
                                                     onClick={ () => changeCurrentGallery( i ) }
                                                 >
@@ -163,6 +165,7 @@ const App = () => {
                                         >
                                             { i === 0 ? 
                                                 <Link 
+                                                    className={galleryCount === i ? 'text-gray-700' : ''}
                                                     to={ `/${ e.component }` }
                                                     onClick={ () => changeCurrentGallery( i ) }
                                                 >
@@ -170,6 +173,7 @@ const App = () => {
                                                 </Link> :
 
                                                 <Link 
+                                                    className={galleryCount === i ? 'text-gray-700' : ''}
                                                     to={ `/${ e.component }` }
                                                     onClick={ () => changeCurrentGallery( i ) }
                                                 >
