@@ -132,7 +132,7 @@ const App = () => {
                     <div className="md:w-1/4 w-full pl-12">
                         <Navigation>
                             <Link 
-                                to="/" 
+                                to="/Thomas_Deman/" 
                                 onClick={ () => setGalleryCount( undefined ) }
                             >
                                 <h1 className={ `mt-12 text-3xl font-thin ${ hover }` }>
