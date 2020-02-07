@@ -1,15 +1,15 @@
 export const carousel = ( count, tab, setCount, hidden, setHidden ) => {
-    count < ( tab.length - 1 ) ?
-        setCount( count + 1 ) :
-        setCount( 0 )
+    count < ( tab.length - 1 )
+        ? setCount( count + 1 )
+        : setCount( 0 )
     if( hidden === false )
         setHidden( true )
 }
 
 export const carouselReverse = ( count, tab, setCount, hidden, setHidden ) => {
-    count > 0 ?
-        setCount( count - 1 ) :
-        setCount( tab.length - 1 )
+    count > 0
+        ? setCount( count - 1 )
+        : setCount( tab.length - 1 )
     if( hidden === false )
         setHidden( true )
 }

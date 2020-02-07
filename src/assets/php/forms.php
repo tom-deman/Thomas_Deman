@@ -11,7 +11,7 @@ $message_error   = "Error <a href=\"../html/contact.html\"> come back to try aga
 $message_invalid = "Error, please make sure all required fields are filled out correctly";
 
 // check if the var return isn't NULL
-if ( !isset( $_POST[ 'send' ] )) 
+if ( !isset( $_POST[ 'send' ] ))
 	echo '<p class="php_p">'.$message_error.'</p>'."\n";
 
 // If it isn't we enter here
@@ -19,7 +19,7 @@ else {
 	// Function to convert special characters in html entity
 	function Rec( $text ) {
 		$text = htmlspecialchars( trim ( $text ), ENT_QUOTES );
-		if ( 1 === get_magic_quotes_gpc() ) 
+		if ( 1 === get_magic_quotes_gpc() )
 			$text = stripslashes( $text );
 
 		$text = nl2br( $text );
@@ -30,10 +30,10 @@ else {
 	$name    = ( isset( $_POST[ 'name' ] ))   ? Rec( $_POST[ 'name' ] )    : '';
 	$email   = ( isset( $_POST[  'email' ] )) ? Rec( $_POST[ 'email' ] )   : '';
 	$message = ( isset( $_POST['message' ]))  ? Rec( $_POST[ 'message' ] ) : '';
-	
+
 	// Checking if the fields aren't empty and if the email is a valid address
 	if ( ( $name != '' ) && ( $email != '' && filter_var( $email, FILTER_VALIDATE_EMAIL )) && ( $message != '' ) ) {
-		
+
 		// Technical headers php settings, kind of meta for html
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'From:'.$name.' <'.$email.'>' . "\r\n" .
@@ -57,7 +57,7 @@ else {
 	}
 
 	// If an error occurs we enter here and echo the invalid var message with a come back link to try again
-	else 
+	else
 		echo '<p class="php_p">'.$message_invalid.'<a href="../html/contact.html"> <br /> <br /> Try again</a></p>'."\n";
 }
 ?>

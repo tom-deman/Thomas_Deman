@@ -19,10 +19,10 @@ import tabModernity  from './assets/js/modernity'
 import tabExhibition from './assets/js/exhibition'
 import tabDisorder   from './assets/js/disorder'
 
-import { 
-    carousel, 
-    carouselReverse, 
-    hover, 
+import {
+    carousel,
+    carouselReverse,
+    hover,
     galleryLinks 
 } from './assets/js/global'
 
@@ -51,13 +51,13 @@ const App = () => {
     const changeInquietude = () => 
         carousel( ...inquietudeParams )
 
-    const changeModernity = () => 
+    const changeModernity = () =>
         carousel( ...modernityParams )
 
     const changeExhibition = () => 
         carousel( ...exhibitionParams )
 
-    const changeDisorder = () => 
+    const changeDisorder = () =>
         carousel( ...disorderParams )
 
 
@@ -102,10 +102,10 @@ const App = () => {
     const changeCurrentGallery = ( a ) => {
         setGalleryCount( a )
         switch( a ) {
-            case 0: 
+            case 0:
                 setCountInquietude( 0 )
                 break
-            case 1: 
+            case 1:
                 setCountModernity( 0 )
                 break
             case 2:
@@ -114,7 +114,7 @@ const App = () => {
             case 3:
                 setCountDisorder( 0 )
                 break
-            default: 
+            default:
                 // Do nothing
         }
     }
@@ -122,18 +122,18 @@ const App = () => {
 
     return(
         <StrictMode>
-            <div 
-                className="md:flex block md:w-screen md:h-screen disable-scroll" 
-                tabIndex="0" 
+            <div
+                className="md:flex block md:w-screen md:h-screen disable-scroll"
+                tabIndex="0"
                 onKeyDown={ changeGallery }
             >
                 <Router>
 
                     <div className="md:w-1/4 w-full pl-12">
                         <Navigation>
-                            <Link 
+                            <Link
                                 className={galleryCount === undefined ? 'text-gray-700' : ''}
-                                to="/Thomas_Deman/" 
+                                to="/Thomas_Deman/"
                                 onClick={ () => setGalleryCount( undefined ) }
                             >
                                 <h1 className={ `mt-12 text-3xl font-thin ${ hover }` }>
@@ -145,13 +145,13 @@ const App = () => {
                                 { galleryLinks.map(( e, i ) => {
                                     if( i === 3 )
                                         return(
-                                            <li 
-                                                key={ i } 
-                                                className={ `my-8 font-thin ${ hover }` } 
+                                            <li
+                                                key={ i }
+                                                className={ `my-8 font-thin ${ hover }` }
                                             >
-                                                <Link 
+                                                <Link
                                                     className={galleryCount === i ? 'text-gray-700' : ''}
-                                                    to={ `/${ e.component }` } 
+                                                    to={ `/${ e.component }` }
                                                     onClick={ () => changeCurrentGallery( i ) }
                                                 >
                                                     { e.component }
@@ -159,26 +159,27 @@ const App = () => {
                                             </li>
                                         )
                                     return(
-                                        <li 
-                                            className={ `font-thin ${ hover }` } 
+                                        <li
+                                            className={ `font-thin ${ hover }` }
                                             key={ e.component }
                                         >
-                                            { i === 0 ? 
-                                                <Link 
-                                                    className={galleryCount === i ? 'text-gray-700' : ''}
-                                                    to={ `/${ e.component }` }
-                                                    onClick={ () => changeCurrentGallery( i ) }
-                                                >
-                                                    In Quietude
-                                                </Link> :
-
-                                                <Link 
-                                                    className={galleryCount === i ? 'text-gray-700' : ''}
-                                                    to={ `/${ e.component }` }
-                                                    onClick={ () => changeCurrentGallery( i ) }
-                                                >
-                                                    { e.component }
-                                                </Link>
+                                            { i === 0
+                                                ?
+                                                    <Link
+                                                        className={galleryCount === i ? 'text-gray-700' : ''}
+                                                        to={ `/${ e.component }` }
+                                                        onClick={ () => changeCurrentGallery( i ) }
+                                                    >
+                                                        In Quietude
+                                                    </Link>
+                                                :
+                                                    <Link
+                                                        className={galleryCount === i ? 'text-gray-700' : ''}
+                                                        to={ `/${ e.component }` }
+                                                        onClick={ () => changeCurrentGallery( i ) }
+                                                    >
+                                                        { e.component }
+                                                    </Link>
                                             }
                                         </li>
                                     )
@@ -193,7 +194,7 @@ const App = () => {
 
                     <div className="md:w-3/4 w-full">
                         <Show>
-                            <Link 
+                            <Link
                                 to="/Inquietude"
                                 onClick={ () => setGalleryCount( 0 ) }
                             >
@@ -203,7 +204,7 @@ const App = () => {
                                     </Route>
                                 </Switch>
                             </Link>
-                            
+
                             <div className="md:w-4/6 w-full mt-8">
                                 <Switch>
                                     <Route path="/Inquietude">
@@ -216,7 +217,7 @@ const App = () => {
                                     </Route>
 
                                     <Route path="/Modernity">
-                                        <Gallery 
+                                        <Gallery
                                             tab={ tabModernity }
                                             count={ countModernity }
                                             changeImg={ changeModernity }
@@ -225,7 +226,7 @@ const App = () => {
                                     </Route>
 
                                     <Route path="/Exhibition">
-                                        <Gallery 
+                                        <Gallery
                                             tab={ tabExhibition }
                                             count={ countExhibition }
                                             changeImg={ changeExhibition }
@@ -234,7 +235,7 @@ const App = () => {
                                     </Route>
 
                                     <Route path="/Disorder">
-                                        <Gallery 
+                                        <Gallery
                                             tab={ tabDisorder }
                                             count={ countDisorder }
                                             changeImg={ changeDisorder }
@@ -242,9 +243,9 @@ const App = () => {
                                         />
                                     </Route>
 
-                                    <Route 
-                                        path="/Contact" 
-                                        component={ Contact } 
+                                    <Route
+                                        path="/Contact"
+                                        component={ Contact }
                                     />
                                 </Switch>
                             </div>

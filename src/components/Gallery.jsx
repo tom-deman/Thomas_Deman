@@ -6,11 +6,11 @@ const Gallery = ( props ) => {
     return (
         <StrictMode>
             <div className="gallery">
-                <img 
-                    className="picture" 
-                    src={ props.tab[ props.count ] } 
-                    onClick={ () => props.changeImg() } 
-                    alt="In Quietude photograph" 
+                <img
+                    className="picture"
+                    src={ props.tab[ props.count ] }
+                    onClick={ () => props.changeImg() }
+                    alt="In Quietude photograph"
                 />
             </div>
             <div className="md:flex hidden justify-around mt-6">

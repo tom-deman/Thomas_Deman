@@ -11,7 +11,7 @@ let tabExhibition = [
       exhibition3,
       exhibition4,
       exhibition5
-] 
+]
 
 
 export default tabExhibition
