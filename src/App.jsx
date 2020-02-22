@@ -143,44 +143,18 @@ const App = () => {
 
                             <ul className="mt-12 pl-2">
                                 { galleryLinks.map(( e, i ) => {
-                                    if( i === 3 )
-                                        return(
-                                            <li
-                                                key={ i }
-                                                className={ `my-8 font-thin ${ hover }` }
-                                            >
-                                                <Link
-                                                    className={galleryCount === i ? 'text-gray-700' : ''}
-                                                    to={ `/${ e.component }` }
-                                                    onClick={ () => changeCurrentGallery( i ) }
-                                                >
-                                                    { e.component }
-                                                </Link>
-                                            </li>
-                                        )
                                     return(
                                         <li
-                                            className={ `font-thin ${ hover }` }
-                                            key={ e.component }
+                                            key={ i }
+                                            className={ i === 3 ? `my-8 font-thin ${ hover }` : `font-thin ${ hover }` }
                                         >
-                                            { i === 0
-                                                ?
-                                                    <Link
-                                                        className={galleryCount === i ? 'text-gray-700' : ''}
-                                                        to={ `/${ e.component }` }
-                                                        onClick={ () => changeCurrentGallery( i ) }
-                                                    >
-                                                        In Quietude
-                                                    </Link>
-                                                :
-                                                    <Link
-                                                        className={galleryCount === i ? 'text-gray-700' : ''}
-                                                        to={ `/${ e.component }` }
-                                                        onClick={ () => changeCurrentGallery( i ) }
-                                                    >
-                                                        { e.component }
-                                                    </Link>
-                                            }
+                                            <Link
+                                                className={ galleryCount === i ? 'text-gray-700' : '' }
+                                                to={ `/${ e.component }` }
+                                                onClick={ () => changeCurrentGallery( i ) }
+                                            >
+                                                { i === 0 ? 'In Quietude' : e.component }
+                                            </Link>
                                         </li>
                                     )
                                 })}
