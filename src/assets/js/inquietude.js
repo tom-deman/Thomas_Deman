@@ -33,10 +33,11 @@ import inquietude32 from '../img/inquietude/img32.jpg'
 import inquietude33 from '../img/inquietude/img33.jpg'
 import inquietude34 from '../img/inquietude/img34.jpg'
 import inquietude35 from '../img/inquietude/img35.jpg'
+import inquietude36 from '../img/inquietude/img36.jpg'
 
 
 let tabInquietude = [
-      inquietude1, 
+      inquietude1,
       inquietude2,
       inquietude3,
       inquietude4,
@@ -70,7 +71,8 @@ let tabInquietude = [
       inquietude32,
       inquietude33,
       inquietude34,
-      inquietude35
+      inquietude35,
+      inquietude36
 ]
 
 

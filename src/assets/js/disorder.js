@@ -6,6 +6,7 @@ import disorder5 from '../img/disorder/img5.jpg'
 import disorder6 from '../img/disorder/img6.jpg'
 import disorder7 from '../img/disorder/img7.jpg'
 import disorder8 from '../img/disorder/img8.jpg'
+import disorder9 from '../img/disorder/img9.jpg'
 
 
 let tabDisorder = [
@@ -16,7 +17,8 @@ let tabDisorder = [
      disorder5,
      disorder6,
      disorder7,
-     disorder8
+     disorder8,
+     disorder9
 ]
 
 
