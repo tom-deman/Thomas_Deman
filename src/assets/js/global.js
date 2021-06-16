@@ -30,11 +30,7 @@ export const galleryLinks = [
     {
         component: 'Disorder',
         years    : '"Disorder 2018-2019"'
-    },
-    {
-        component: 'Contact',
-        years    : null
-    },
+    }
 ]
 
 export const hover = 'hover:text-gray-700'

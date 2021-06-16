@@ -10,7 +10,7 @@ import './assets/css/tailwind.css'
 import './assets/sass/style.sass'
 
 import Gallery    from './components/Gallery'
-import Contact    from './components/Contact'
+// import Contact    from './components/Contact'
 import Show       from './components/Show'
 import Navigation from './components/Navigation'
 
@@ -217,10 +217,10 @@ const App = () => {
                                         />
                                     </Route>
 
-                                    <Route
+                                    {/* <Route
                                         path="/Contact"
                                         component={ Contact }
-                                    />
+                                    /> */}
                                 </Switch>
                             </div>
                         </Show>
